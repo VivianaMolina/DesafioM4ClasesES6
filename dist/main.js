@@ -1,14 +1,12 @@
 "use strict";
 
-var _cliente = _interopRequireDefault(require("./cliente"));
-var _impuestos = _interopRequireDefault(require("./impuestos"));
+var _cliente = _interopRequireDefault(require("./cliente.js"));
+var _impuestos = _interopRequireDefault(require("./impuestos.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-var impuesto1 = new _impuestos["default"](2500, 50);
-console.log({
-  impuesto1: impuesto1
+// Crear un array de clientes
+var cliente1 = [new _cliente["default"]('Joaquin', new _impuestos["default"](7500, 10)), new _cliente["default"]('Diego', new _impuestos["default"](6400, 20)), new _cliente["default"]('Matteo', new _impuestos["default"](2500, 30))];
+console.table(cliente1);
+console.log("nombre ==> Impuesto anual");
+cliente1.forEach(function (cliente) {
+  console.table("".concat(cliente.nombre, " ==> ").concat(cliente.calcularImpuesto()));
 });
-var cliente1 = new _cliente["default"]('Joaquin', impuesto1);
-console.log({
-  cliente1: cliente1
-});
-console.log(cliente1.calcularImpuesto());
